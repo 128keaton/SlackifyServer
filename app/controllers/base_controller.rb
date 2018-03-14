@@ -11,8 +11,14 @@ class BaseController < ApplicationController
         		@user.enabled = true
 			@user.slack_user_id = params[:user_id]
                 	if @user.save
-                    		render json: @user.hex_code
+                    		render html: "<p>Save this code: <b>#{@user.hex_code}</b></p>".html_safe
                 	end
 		end
 	end
+	
+	def get_user
+		if @user = User.find_by(hex_code: params[:code])
+			render json: @user.slack_user_id
+		end
+	end 
 end
