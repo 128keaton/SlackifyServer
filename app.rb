@@ -2,9 +2,15 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require './config/environments' #database configuration
 require './models/user'
+
+before do
+  content_type :json
+end
  
 get '/' do
-	User.all.to_json
+	User.all.each do |user|
+		JSON.generate(user.as_json)
+	end
 end
 
 before do

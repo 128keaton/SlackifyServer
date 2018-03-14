@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20180313170957) do
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
+    t.string "hex_code"
     t.string "uid"
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
