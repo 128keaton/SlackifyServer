@@ -4,6 +4,14 @@ class BaseController < ApplicationController
  			:users => User.all.each.as_json(:except => [:hex_code]),
 		}
 	end
+	
+	def code
+		if params[:code]
+			puts params[:code]
+		end
+		
+		render json: params[:code]
+	end
 
 	def enable
 		if !User.find_by(slack_user_id: params[:user_id])
