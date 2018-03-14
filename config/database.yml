@@ -1,0 +1,6 @@
+development:
+  adapter: postgresql
+  database: slackify_users
+  username: <%= ENV['PG_USER'] %>
+  password: <%= ENV['PG_PASS'] %>
+  host: localhost
