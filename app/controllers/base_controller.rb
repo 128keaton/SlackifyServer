@@ -8,9 +8,8 @@ class BaseController < ApplicationController
 	def code
 		if params[:code]
 			puts params[:code]
+			redirect_to 'keaton.slackify://slack?code=#{params[:code]}"
 		end
-		
-		render json: params[:code]
 	end
 
 	def enable
